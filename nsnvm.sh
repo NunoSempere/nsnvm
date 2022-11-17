@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dir="$HOME/.nnvm"
+dir="$HOME/.nsnvm"
 version="$1"
 referent="node-v$version-linux-x64"
 nodejs_url="https://nodejs.org/dist/v$version/$referent.tar.xz"
