@@ -30,3 +30,7 @@ Read the `nsnvm.sh` file, then execute it like:
 ```
 
 Make sure that you pass it one argument and that it is a correct node version number: there is no error checking. You can check node versions [here](https://nodejs.org/dist/index.json) or [here](https://nodejs.org/en/download/releases/)
+
+## Contributions
+
+Contributions are welcome as long as they keep with the overall theme of simplicity. In particular, some small amount of error checking—e.g., checking that the version exists or that arguments aren't empy—would be fine.
