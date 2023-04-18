@@ -1,4 +1,4 @@
-NUÑO's STUPID NODE VERSION MANAGER
+Nuño's Stupid Node Version Manager
 ==================================
 
 ## The problem
@@ -30,6 +30,10 @@ Read the `nsnvm.sh` file, then execute it like:
 ```
 
 Make sure that you pass it one argument and that it is a correct node version number: there is no error checking. You can check node versions [here](https://nodejs.org/dist/index.json) or [here](https://nodejs.org/en/download/releases/)
+
+## Downsides
+
+This setup will wreck your existing global node package installations, i.e., packages installed with `npm -g package_name`. To fix this, install a package again and look into `$HOME/.nsnvm/.../npm` for the location of the package, and wrap it in a bash alias. 
 
 ## Contributions
 
