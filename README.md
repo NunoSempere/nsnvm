@@ -21,7 +21,7 @@ Write a stupidly simple node version manager which is significantly simpler, hac
 
 ## Usage
 
-Use this software at your own risk. In particular, strongly consider reading the 20 lines of source code to understand what it does.
+Use this software at your own risk. In particular, strongly consider reading the 34 lines of source code to understand what it does.
 
 Read the `nsnvm.sh` file, then execute it like:
 
