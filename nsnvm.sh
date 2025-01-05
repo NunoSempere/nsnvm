@@ -11,7 +11,11 @@ error() {
 }
 
 if [ -z "$version" ]; then
-  error "No version number was provided"
+  echo "Error: No version number was provided"  >&2
+  echo "Here are the latest ten version numbers: " >&2
+  curl -s https://nodejs.org/dist/index.tab | cut -d'	' -f1 | head -n 11 | tail -n 9 | sed 's|^v||g' >&2
+  echo "You can see all at https://nodejs.org/dist/index.tab" >&2
+  exit 1
 fi
 
 mkdir -p "$dir"
@@ -31,5 +35,9 @@ sudo ln -s "$dir/$referent/bin/npm" "/usr/bin" || error "Failed to link npm bina
 sudo ln -s "$dir/$referent/bin/npx" "/usr/bin" || error "Failed to link npx binary"
 
 echo "Node.js $version has been installed."
+
+echo ""
+echo "If installing packages globally, (e.g., npm install -g yarn), you will want to add ~/.nsnvm/$referent/bin/ to your PATH."
+echo "\$ echo PATH=\$PATH:~/.nsnvm/$referent/bin/ >> ~/.bashrc"
 
 exit 0

@@ -5,7 +5,7 @@ Nuño's Stupid Node Version Manager
 
 Current node version managers, such as [nvm](https://github.com/nvm-sh/nvm) or [asdf](https://asdf-vm.com/) are too slow. In particular, they add half a second to a few seconds when loaded with bash. 
 
-You can test this by removing these lines from your `.bashrc`:
+If you are using nvm, you can test its slowness by removing these lines from your `.bashrc`:
 
 ```
 export NVM_DIR="$HOME/.nvm"
@@ -21,7 +21,7 @@ Write a stupidly simple node version manager which is significantly simpler, hac
 
 ## Usage
 
-Use this software at your own risk. In particular, strongly consider reading the 34 lines of source code to understand what it does.
+Use this software at your own risk. In particular, strongly consider reading the 43 lines of source code to understand what it does.
 
 Read the `nsnvm.sh` file, then execute it like:
 
@@ -29,12 +29,19 @@ Read the `nsnvm.sh` file, then execute it like:
 ./nsvnm.sh 18.12.1
 ```
 
-Make sure that you pass it one argument and that it is a correct node version number: there is no error checking. You can check node versions [here](https://nodejs.org/dist/index.json) or [here](https://nodejs.org/en/download/releases/)
+You can check node versions [here](https://nodejs.org/dist/index.json) or [here](https://nodejs.org/en/download/releases/). If you type no version number, nsnvm will give you the latest 10 version numbers.
+
+## Instalation
+
+````
+chmod +x nsnvm.sh
+sudo cp nsnvm.sh /usr/bin/nsnvm
+``````
 
 ## Downsides
 
-This setup will wreck your existing global node package installations, i.e., packages installed with `npm -g package_name`. To fix this, install a package again and look into `$HOME/.nsnvm/.../npm` for the location of the package, and wrap it in a bash alias. 
+This setup will wreck your existing global node package installations, i.e., packages installed with `npm -g package_name`. To fix this, install global packages again after installing a new node version. nsnvm will also give you a hint to add to your PATH the directory in which npm global packages are located.
 
 ## Contributions
 
-Contributions are welcome as long as they keep with the overall theme of simplicity. In particular, some small amount of error checking—e.g., checking that the version exists or that arguments aren't empy—would be fine.
+Contributions are welcome as long as they keep with the overall theme of simplicity. 
